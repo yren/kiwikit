@@ -27,39 +27,20 @@ public class Pair<L, R> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        Pair<?, ?> pair = (Pair<?, ?>) o;
 
-        Pair other = (Pair) o;
-        if (left == null) {
-            if (other.left != null) {
-                return false;
-            }
-        } else if (!left.equals(other.left)) {
-            return false;
-        }
-
-        if (right == null) {
-            if (other.right != null) {
-                return false;
-            }
-        } else if (!right.equals(other.right)) {
-            return false;
-        }
-        return true;
+        if (left != null ? !left.equals(pair.left) : pair.left != null) return false;
+        return right != null ? right.equals(pair.right) : pair.right == null;
     }
 
     @Override
     public int hashCode() {
-        final int prime = 37;
-        int result = 1;
-        result = prime * result + ((left == null) ? 0 : left.hashCode());
-        return prime * result + ((right == null) ? 0 : right.hashCode());
+        int result = left != null ? left.hashCode() : 0;
+        result = 31 * result + (right != null ? right.hashCode() : 0);
+        return result;
     }
 
     @Override
