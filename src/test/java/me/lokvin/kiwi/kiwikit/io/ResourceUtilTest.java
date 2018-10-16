@@ -14,7 +14,7 @@ public class ResourceUtilTest {
 
     @Test
     public void testAsString2() throws IOException {
-        String a = ResourceUtil.asString(ResourceUtilTest.class, "/folder/test.properties");
+        String a = ResourceUtil.asString(ResourceUtil.class, "/folder/test.properties");
         Assert.assertTrue(a.contains("name"));
 
     }
