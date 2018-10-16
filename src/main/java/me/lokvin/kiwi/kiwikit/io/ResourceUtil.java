@@ -30,19 +30,19 @@ public class ResourceUtil {
         return ResourceUtil.asUrl(contextClass, resourceName).openStream();
     }
 
-    public static String toString(String resourceName) throws IOException {
+    public static String asString(String resourceName) throws IOException {
         return Resources.toString(Resources.getResource(resourceName), StandardCharsets.UTF_8);
     }
 
-    public static String toString(Class<?> contextClass, String resourceName) throws IOException {
+    public static String asString(Class<?> contextClass, String resourceName) throws IOException {
         return Resources.toString(Resources.getResource(contextClass, resourceName), StandardCharsets.UTF_8);
     }
 
-    public static List<String> toLines(String resourceName) throws IOException {
+    public static List<String> asLines(String resourceName) throws IOException {
         return Resources.readLines(Resources.getResource(resourceName), StandardCharsets.UTF_8);
     }
 
-    public static List<String> toLines(Class<?> contextClass, String resourceName) throws IOException {
+    public static List<String> asLines(Class<?> contextClass, String resourceName) throws IOException {
         return Resources.readLines(Resources.getResource(contextClass, resourceName), StandardCharsets.UTF_8);
     }
 
