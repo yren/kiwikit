@@ -10,6 +10,7 @@ public class ResourceUtilTest {
     @Test
     public void testAsString() throws IOException {
         Assert.assertTrue(ResourceUtil.asString("test.txt").contains("Hello"));
+        Assert.assertTrue(ResourceUtil.asString("folder/test.properties").contains("name"));
     }
 
     @Test
