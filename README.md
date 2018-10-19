@@ -7,5 +7,7 @@
 </div>
 <br />
 <div align="center">
+
 [![Build Status](https://travis-ci.org/yren/kiwikit.svg?branch=master)](https://travis-ci.org/yren/kiwikit)
+
 </div>
