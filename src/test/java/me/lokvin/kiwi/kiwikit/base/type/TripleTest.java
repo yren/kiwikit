@@ -1,4 +1,4 @@
-package me.lokvin.kiwi.kiwikit.base;
+package me.lokvin.kiwi.kiwikit.base.type;
 
 import me.lokvin.kiwi.kiwikit.base.type.Triple;
 import org.junit.Assert;
