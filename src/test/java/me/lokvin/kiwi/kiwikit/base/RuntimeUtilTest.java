@@ -11,5 +11,6 @@ public class RuntimeUtilTest {
         System.out.println("JVM UPTIME (millisecond): " + RuntimeUtil.getUpTime());
         System.out.println("PID: " + RuntimeUtil.getPid());
         System.out.println("VM Arguments: " + RuntimeUtil.getVmArguments());
+        RuntimeUtil.addShutdownHook(() -> {System.out.println("systemShutdowning ...");});
     }
 }

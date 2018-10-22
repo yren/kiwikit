@@ -4,8 +4,17 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class RuntimeUtil {
+
+    private static AtomicInteger shutdownHookThreadIndex = new AtomicInteger(0);
+
+    public static void addShutdownHook(Runnable runnable) {
+        Runtime.getRuntime().addShutdownHook(
+            new Thread(runnable, "Thread-ShutdownHook-" + shutdownHookThreadIndex.incrementAndGet())
+        );
+    }
 
     public static int getCores() {
         return Runtime.getRuntime().availableProcessors();
@@ -34,4 +43,5 @@ public class RuntimeUtil {
         List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
         return StringUtils.join(vmArguments, " ");
     }
+
 }
