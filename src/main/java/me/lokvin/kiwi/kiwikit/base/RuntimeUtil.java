@@ -1,6 +1,9 @@
 package me.lokvin.kiwi.kiwikit.base;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.lang.management.ManagementFactory;
+import java.util.List;
 
 public class RuntimeUtil {
 
@@ -25,5 +28,10 @@ public class RuntimeUtil {
         } catch (Throwable e) {
             return -1;
         }
+    }
+
+    public static String getVmArguments() {
+        List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
+        return StringUtils.join(vmArguments, " ");
     }
 }

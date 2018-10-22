@@ -10,5 +10,6 @@ public class RuntimeUtilTest {
         System.out.println("CPU CORE: " + RuntimeUtil.getCores());
         System.out.println("JVM UPTIME (millisecond): " + RuntimeUtil.getUpTime());
         System.out.println("PID: " + RuntimeUtil.getPid());
+        System.out.println("VM Arguments: " + RuntimeUtil.getVmArguments());
     }
 }
