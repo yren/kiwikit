@@ -12,5 +12,6 @@ public class RuntimeUtilTest {
         System.out.println("PID: " + RuntimeUtil.getPid());
         System.out.println("VM Arguments: " + RuntimeUtil.getVmArguments());
         RuntimeUtil.addShutdownHook(() -> {System.out.println("systemShutdowning ...");});
+        System.out.println("Caller class: " + RuntimeUtil.getCallerClass());
     }
 }

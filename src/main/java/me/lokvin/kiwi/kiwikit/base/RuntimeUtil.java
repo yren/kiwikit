@@ -44,4 +44,13 @@ public class RuntimeUtil {
         return StringUtils.join(vmArguments, " ");
     }
 
+    public static String getCallerClass() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= 4) {
+            return stackTrace[3].getClassName();
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
 }
