@@ -44,10 +44,21 @@ public class RuntimeUtil {
         return StringUtils.join(vmArguments, " ");
     }
 
-    public static String getCallerClass() {
+    public static String getCallerMethod() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace.length >= 4) {
-            return stackTrace[3].getClassName();
+            StackTraceElement e = stackTrace[3];
+            return e.getClassName() + '.' + e.getMethodName() + "()";
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
+    public static String getCurrentMethod() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= 3) {
+            StackTraceElement e = stackTrace[2];
+            return e.getClassName() + '.' + e.getMethodName() + "()";
         } else {
             return StringUtils.EMPTY;
         }
