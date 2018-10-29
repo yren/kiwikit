@@ -21,4 +21,20 @@ public class SystemPropertiesUtil {
         return System.getProperty(key, defaultValue);
     }
 
+    public static Integer getInteger(String key) {
+        return Integer.getInteger(key);
+    }
+
+    public static Integer getInteger(String key, Integer defaultValue) {
+        return Integer.getInteger(key, defaultValue);
+    }
+
+    public static Long getLong(String key) {
+        return Long.getLong(key);
+    }
+
+    public static Long getLong(String key, Long defaultValue) {
+        return Long.getLong(key, defaultValue);
+    }
+
 }
