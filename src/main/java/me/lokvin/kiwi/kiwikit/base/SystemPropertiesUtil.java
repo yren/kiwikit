@@ -13,4 +13,12 @@ public class SystemPropertiesUtil {
         return SystemPropertiesUtil.getBoolean(key) != null ? SystemPropertiesUtil.getBoolean(key) : defaultValue;
     }
 
+    public static String getString(String key) {
+        return System.getProperty(key);
+    }
+
+    public static String getString(String key, String defaultValue) {
+        return System.getProperty(key, defaultValue);
+    }
+
 }

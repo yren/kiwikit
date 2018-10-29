@@ -17,5 +17,8 @@ public class SystemPropertiesUtilTest {
         Assert.assertTrue(SystemPropertiesUtil.getBoolean(key));
         Assert.assertTrue(SystemPropertiesUtil.getBoolean(key, false));
 
+        Assert.assertEquals("true", SystemPropertiesUtil.getString(key));
+        Assert.assertEquals("hello", SystemPropertiesUtil.getString("key", "hello"));
+
     }
 }
