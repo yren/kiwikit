@@ -30,5 +30,6 @@ public class SystemPropertiesUtilTest {
         System.setProperty(key, "0.01");
         Assert.assertEquals("should be equal 0.01",Double.valueOf("0.01"), SystemPropertiesUtil.getDouble(key));
         Assert.assertEquals("should be equal default 0.02", Double.valueOf("0.02"), SystemPropertiesUtil.getDouble("key", Double.valueOf("0.02")));
+        Assert.assertNull("no system property 'test.abc' should be null", SystemPropertiesUtil.getDouble("test.abc"));
     }
 }
