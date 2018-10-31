@@ -1,5 +1,6 @@
 package me.lokvin.kiwi.kiwikit.base;
 
+import me.lokvin.kiwi.kiwikit.number.NumberUtil;
 import org.apache.commons.lang3.BooleanUtils;
 
 public class SystemPropertiesUtil {
@@ -37,5 +38,11 @@ public class SystemPropertiesUtil {
         return Long.getLong(key, defaultValue);
     }
 
+    public static Double getDouble(String key) {
+        return NumberUtil.toDoubleObject(System.getProperty(key), null);
+    }
 
+    public static Double getDouble(String key, Double defaultValue) {
+        return NumberUtil.toDoubleObject(System.getProperty(key), defaultValue);
+    }
 }

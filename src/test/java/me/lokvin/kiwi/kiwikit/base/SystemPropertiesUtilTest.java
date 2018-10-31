@@ -22,9 +22,13 @@ public class SystemPropertiesUtilTest {
 
         System.setProperty(key, "10");
         Assert.assertEquals(Integer.valueOf(10), SystemPropertiesUtil.getInteger(key));
-        Assert.assertEquals("should equals 10", Integer.valueOf(10), SystemPropertiesUtil.getInteger("key", 10));
+        Assert.assertEquals("should be equal 10", Integer.valueOf(10), SystemPropertiesUtil.getInteger("key", 10));
 
-        Assert.assertEquals("should be equals 10", Long.valueOf(10), SystemPropertiesUtil.getLong(key));
-        Assert.assertEquals("should be equals 10", Long.valueOf(10), SystemPropertiesUtil.getLong("key", Long.valueOf(10)));
+        Assert.assertEquals("should be equal 10", Long.valueOf(10), SystemPropertiesUtil.getLong(key));
+        Assert.assertEquals("should be equal 10", Long.valueOf(10), SystemPropertiesUtil.getLong("key", Long.valueOf(10)));
+
+        System.setProperty(key, "0.01");
+        Assert.assertEquals("should be equal 0.01",Double.valueOf("0.01"), SystemPropertiesUtil.getDouble(key));
+        Assert.assertEquals("should be equal default 0.02", Double.valueOf("0.02"), SystemPropertiesUtil.getDouble("key", Double.valueOf("0.02")));
     }
 }
