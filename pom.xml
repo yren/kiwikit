@@ -15,6 +15,11 @@
     <guava.version>26.0-jre</guava.version>
     <junit.version>4.12</junit.version>
     <slf4j.version>1.7.25</slf4j.version>
+    
+    <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+    <site-maven-plugin.version>0.12</site-maven-plugin.version>
+    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+    <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
 
     <!-- plugin properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,13 +72,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.0.0-M1</version>
+        <version>${maven-deploy-plugin.version}</version>
       </plugin>
 
       <plugin>
         <groupId>com.github.github</groupId>
         <artifactId>site-maven-plugin</artifactId>
-        <version>0.12</version>
+        <version>${site-maven-plugin.version}</version>
         <configuration>
           <!-- git commit message -->
           <message>Maven artifacts for ${project.name} ${project.version}</message>
@@ -98,7 +103,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>${maven-source-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -112,10 +117,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>${maven-javadoc-plugin.version}</version>
         <executions>
           <execution>
-            <id>attach-javadocs</id>
+            <id>attach-docs</id>
             <goals>
               <goal>jar</goal>
             </goals>
