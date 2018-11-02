@@ -3,6 +3,7 @@ package me.lokvin.kiwi.kiwikit.base;
 import me.lokvin.kiwi.kiwikit.number.NumberUtil;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 public class SystemPropertiesUtil {
 
@@ -59,6 +60,17 @@ public class SystemPropertiesUtil {
             return value;
         } else {
             value = System.getenv(envName);
+            return value != null ? value : defaultValue;
+        }
+    }
+
+    public static Integer getIneger(String propertyKey, String envName, Integer defaultValue) {
+        checkEnvName(envName);
+        Integer value = SystemPropertiesUtil.getInteger(propertyKey);
+        if (value != null) {
+            return value;
+        } else {
+            value = NumberUtil.toIntObject(System.getenv(envName));
             return value != null ? value : defaultValue;
         }
     }

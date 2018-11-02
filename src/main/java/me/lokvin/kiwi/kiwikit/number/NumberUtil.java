@@ -12,12 +12,28 @@ public class NumberUtil {
         }
         try {
             return Double.valueOf(val);
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException nfe) {
             return defaultValue;
         }
     }
 
     public static Double toDoubleObject(@Nullable String val) {
         return NumberUtil.toDoubleObject(val, null);
+    }
+
+    public static Integer toIntObject(@Nullable String val, Integer defaultValue) {
+        if (StringUtils.isEmpty(val)) {
+            return defaultValue;
+        }
+
+        try {
+            return Integer.valueOf(val);
+        } catch (NumberFormatException nfe) {
+            return defaultValue;
+        }
+    }
+
+    public static Integer toIntObject(@Nullable String val) {
+        return NumberUtil.toIntObject(val, null);
     }
 }

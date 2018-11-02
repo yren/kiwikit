@@ -49,6 +49,7 @@ public class SystemPropertiesUtilTest {
     public void testGetStringUseEnvName() {
         String key = "kiwi.test";
         Assert.assertNotEquals("should be use envName PATH", "hello", SystemPropertiesUtil.getString(key, "PATH", "hello"));
+        System.out.println("PATH: " + System.getenv("PATH"));
     }
 
     @Test
