@@ -47,14 +47,9 @@ public class SystemPropertiesUtil {
         return NumberUtil.toDoubleObject(System.getProperty(key), defaultValue);
     }
 
-    /**
+    /*
      * combine system property and envName (-D),
      * prior return propertyKey value if not null, then env value, otherwise defaultValue
-     *
-     * @param propertyKey
-     * @param envName
-     * @param defaultValue
-     * @return
      */
     public static String getString(String propertyKey, String envName, String defaultValue) {
         checkEnvName(envName);
