@@ -2,6 +2,7 @@ package me.lokvin.kiwi.kiwikit.base;
 
 import me.lokvin.kiwi.kiwikit.number.NumberUtil;
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class SystemPropertiesUtil {
 
@@ -44,5 +45,30 @@ public class SystemPropertiesUtil {
 
     public static Double getDouble(String key, Double defaultValue) {
         return NumberUtil.toDoubleObject(System.getProperty(key), defaultValue);
+    }
+
+    /**
+     * combine system property and envName (-D),
+     * prior return propertyKey value if not null, then env value, otherwise defaultValue
+     * @return
+     */
+    public static String getString(String propertyKey, String envName, String defaultValue) {
+        checkEnvName(envName);
+        String value = SystemPropertiesUtil.getString(propertyKey);
+        if (value != null) {
+            return value;
+        } else {
+            value = System.getenv(envName);
+            return value != null ? value : defaultValue;
+        }
+    }
+
+    /*
+     * envName can't include '.' in linux
+     */
+    private static void checkEnvName(String envName) {
+        if (StringUtils.isEmpty(envName) || envName.indexOf('.') != -1) {
+            throw new IllegalArgumentException("envName: " + envName + " is not valid");
+        }
     }
 }
