@@ -6,7 +6,7 @@
   <artifactId>kiwikit</artifactId>
   <packaging>jar</packaging>
   <version>0.1.0</version>
-  <name>kiwikit</name>
+  <name>kiwi kit</name>
   <description>kiwi core java libraries</description>
 
   <properties>
@@ -25,6 +25,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
+    <github.global.server>github</github.global.server>
   </properties>
 
   <dependencies>
