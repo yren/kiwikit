@@ -3,7 +3,6 @@ package me.lokvin.kiwi.kiwikit.base;
 import me.lokvin.kiwi.kiwikit.number.NumberUtil;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 
 public class SystemPropertiesUtil {
 
@@ -51,6 +50,10 @@ public class SystemPropertiesUtil {
     /**
      * combine system property and envName (-D),
      * prior return propertyKey value if not null, then env value, otherwise defaultValue
+     *
+     * @param propertyKey
+     * @param envName
+     * @param defaultValue
      * @return
      */
     public static String getString(String propertyKey, String envName, String defaultValue) {
