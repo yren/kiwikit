@@ -31,11 +31,30 @@ public class SystemPropertiesUtilTest {
         Assert.assertEquals("should be equal 0.01",Double.valueOf("0.01"), SystemPropertiesUtil.getDouble(key));
         Assert.assertEquals("should be equal default 0.02", Double.valueOf("0.02"), SystemPropertiesUtil.getDouble("key", Double.valueOf("0.02")));
         Assert.assertNull("no system property 'test.abc' should be null", SystemPropertiesUtil.getDouble("test.abc"));
-        
+
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGetStringWithIllegalEnvName() {
         Assert.assertEquals("should throw IllegalArgumentException", "123", SystemPropertiesUtil.getString("key", "no.no.no", "123"));
+    }
+
+    @Test
+    public void testGetStringUsePropertyKey() {
+        String key = "kiwi.test";
+        System.setProperty(key, "hello");
+        Assert.assertEquals("should be use system property  kiwi.test = hello", "hello", SystemPropertiesUtil.getString(key, "PATH", "all"));
+    }
+    @Test
+    public void testGetStringUseEnvName() {
+        String key = "kiwi.test";
+        Assert.assertNotEquals("should be use envName PATH", "hello", SystemPropertiesUtil.getString(key, "PATH", "hello"));
+    }
+
+    @Test
+    public void testGetStringDefaultValue() {
+        String key = "kiwi.test";
+        String envName = "hellomoto";
+        Assert.assertEquals("should be use default value hello", "hello", SystemPropertiesUtil.getString(key, envName, "hello"));
     }
 }
